@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+ 
+    <head>
+        <title>원 그리기</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+        <style>
+            html, body, #mapid{
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id = 'mapid'></div>
+
+        <script>
+            var map = L.map('mapid').setView([39.24646,69.50385],4);
+
+            var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+                attribution:'&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
+            }).addTo(map);
+
+            var myIcon = L.Icon.extend({
+                options: {
+                shadowUrl: 'image/myicon_shadow.png',
+                iconSize:     [46, 62],
+                shadowSize:   [44, 22],
+                iconAnchor:   [23, 62],
+                shadowAnchor: [4, 22],
+                popupAnchor:  [0, -62]
+                }
+            });
+
+
+            var circle =
+                L.circle([38.9783589, 36.0082376], {
+                    color: '#1E90FF', 
+                    fillColor: '#87CEFA', 
+                    fillOpacity: 0.5, 
+                    weight:10, 
+                    radius: 600000 
+                }).bindTooltip('터키-만트',
+                    {
+                        direction: "bottom",
+                        permanent: true,
+                        opacity:0.9
+                    }).addTo(map);
+
+                L.circle([34.709953, 65.93911], {
+                    color: '#1E90FF', 
+                    fillColor: '#87CEFA', 
+                    fillOpacity: 0.5, 
+                    weight:10, 
+                    radius: 400000 
+                }).bindTooltip('아프카니스탄-만투').addTo(map);
+
+
+                L.circle([49.3609431,67.8906107], {
+                    color: '#1E90FF', 
+                    fillColor: '#87CEFA', 
+                    fillOpacity: 0.5, 
+                    weight:10, 
+                    radius: 700000 
+                }).bindTooltip('카자흐스탄-만티').addTo(map);
+
+
+                L.circle([43.0495855, 87.1246357], {
+                    color: '#1E90FF', 
+                    fillColor: '#87CEFA', 
+                    fillOpacity: 0.5, 
+                    weight:10,
+                    radius: 500000 
+                }).bindTooltip('위구르-만타').addTo(map);
+
+
+                L.circle([35, 100], {
+                    color: '#1E90FF', 
+                    fillColor: '#87CEFA',
+                    fillOpacity: 0.5, 
+                    weight:10, 
+                    radius: 1000000 
+                }).bindTooltip('중국-만터우').addTo(map);
+
+        </script>
+    </body>
+</html>
